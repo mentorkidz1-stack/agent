@@ -1,0 +1,22 @@
+# Dependencies
+node_modules/
+
+# Secrets / environment
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS / editor junk
+Thumbs.db
+.DS_Store
+
+# Local binaries / installers (do not version)
+*.exe
+*.winmd
+
+# Stray draft file
+notepad docker-compose.yml
