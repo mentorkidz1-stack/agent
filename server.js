@@ -36,6 +36,13 @@ const { GoogleGenAI } = require("@google/genai");
 const app = express();
 app.use(express.json({ limit: "10mb" })); // Evolution API envoie du JSON
 
+// Route de santé — sert au monitoring externe (UptimeRobot) pour vérifier que
+// le service est éveillé, sans dépendre de la route webhook (qui n'accepte
+// que du POST et renverrait "Cannot GET /" sur un simple ping GET).
+app.get("/", (req, res) => {
+  res.status(200).json({ status: "ok", service: "whatsapp-agent" });
+});
+
 // ------------------------------------------------------------
 // CONFIGURATION
 // ------------------------------------------------------------
